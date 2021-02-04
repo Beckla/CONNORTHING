@@ -5,8 +5,9 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "CONNORTHINGBlock.generated.h"
-
+class ABase_Char;
 /** A block that can be clicked */
+
 UCLASS(minimalapi)
 class ACONNORTHINGBlock : public AActor
 {
@@ -23,6 +24,8 @@ class ACONNORTHINGBlock : public AActor
 public:
 	ACONNORTHINGBlock();
 
+	UPROPERTY(BlueprintReadWrite, Category = Setup)
+	TSubclassOf<ABase_Char> Base_Char_BP;
 	/** Are we currently active? */
 	bool bIsActive;
 
@@ -54,11 +57,14 @@ public:
 
 	void Highlight(bool bOn);
 
+
 public:
 	/** Returns DummyRoot subobject **/
 	FORCEINLINE class USceneComponent* GetDummyRoot() const { return DummyRoot; }
 	/** Returns BlockMesh subobject **/
 	FORCEINLINE class UStaticMeshComponent* GetBlockMesh() const { return BlockMesh; }
+
+
 };
 
 

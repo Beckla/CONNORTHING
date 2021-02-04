@@ -77,6 +77,7 @@ void ACONNORTHINGBlock::HandleClicked()
 		BlockMesh->SetMaterial(0, OrangeMaterial);
 		OwningGrid->AddScore();
 		UE_LOG(LogTemp, Warning, TEXT("Material is:%s"), mat);
+		GetWorld()->SpawnActor<ABase_Char>(Base_Char_BP, GetActorLocation(),GetActorRotation());
 	}
 		
 }
