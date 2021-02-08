@@ -6,6 +6,13 @@
 // Sets default values
 ABase_Char::ABase_Char()
 {
+	Mesh = CreateDefaultSubobject<UStaticMeshComponent>(FName("Mesh"));
+	static ConstructorHelpers::FObjectFinder<UStaticMesh> MeshA(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_Cube.Shape_Cube'"));
+	UStaticMesh* Asset = MeshA.Object;
+	Mesh->SetStaticMesh(Asset);
+	SetRootComponent(Mesh);
+	
+
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 

@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "UObject/ConstructorHelpers.h"
 #include "Base_Char.generated.h"
 
 UENUM()
@@ -33,6 +34,9 @@ public:
 	ABase_Char();
 
 	ETypes Types = ETypes::Neutral;
+
+	UPROPERTY(VisibleAnywhere)
+	UStaticMeshComponent* Mesh = nullptr;
 
 protected:
 	// Called when the game starts or when spawned
