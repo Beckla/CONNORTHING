@@ -24,7 +24,7 @@ enum class ETypes:uint8 {
 	Electric
 };
 
-UCLASS()
+UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
 class CONNORTHING_API ABase_Char : public AActor
 {
 	GENERATED_BODY()
@@ -45,18 +45,42 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-	void HealthGetter();
-	void AbilityPowerGetter();
-	void ArmourGetter();
-	void MagicResistGetter();
-	void SpeedGetter();
+	// Getters
+
+	UFUNCTION(BlueprintCallable, Category = Setup)
+	float HealthGetter();
+	
+	UFUNCTION(BlueprintCallable, Category = Setup)
+	float AbilityPowerGetter();
+	
+	UFUNCTION(BlueprintCallable, Category = Setup)
+	float ArmourGetter();
+	
+	UFUNCTION(BlueprintCallable, Category = Setup)
+	float MagicResistGetter();
+	
+	UFUNCTION(BlueprintCallable, Category = Setup)
+	float SpeedGetter();
+
+
 
 private:
-	float Health = 0; 
+	UPROPERTY(EditDefaultsOnly, Category = BaseStats)
+	float Health = 0;
+
+	UPROPERTY(EditDefaultsOnly, Category = BaseStats)
 	float AbilityPower = 0;
+
+	UPROPERTY(EditDefaultsOnly, Category = BaseStats)
 	float Armour = 0;
+
+	UPROPERTY(EditDefaultsOnly, Category = BaseStats)
 	float MagicResist = 0;
+
+	UPROPERTY(EditDefaultsOnly, Category = BaseStats)
 	float Speed = 0;
+
+	UPROPERTY(EditDefaultsOnly, Category = BaseStats)
 	float Level = 0;
 
 

@@ -32,3 +32,33 @@ void ABase_Char::Tick(float DeltaTime)
 
 }
 
+float ABase_Char::HealthGetter()
+{
+	auto CHealth = Health;
+	return CHealth;
+}
+
+float ABase_Char::AbilityPowerGetter()
+{
+	auto CAP = AbilityPower;
+	return CAP;
+}
+
+float ABase_Char::ArmourGetter()
+{
+	auto CArmour = Armour;
+	return Armour;
+}
+
+float ABase_Char::MagicResistGetter()
+{
+	auto CMR = MagicResist;
+	return CMR;
+}
+
+float ABase_Char::SpeedGetter()
+{
+	auto CSpeed = Speed;
+	return CSpeed;
+}
+
